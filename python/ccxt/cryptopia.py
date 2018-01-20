@@ -500,7 +500,7 @@ class cryptopia (Exchange):
         raise OrderNotCached(self.id + ' order ' + id + ' not found in cached .orders, fetchOrder requires .orders(de)serialization implemented for self method to work properly')
 
     def fetch_open_orders(self, symbol=None, since=None, limit=None, params={}):
-        orders = self.fetch_orders(symbol, params)
+        orders = self.fetch_orders(symbol, since, params)
         result = []
         for i in range(0, len(orders)):
             if orders[i]['status'] == 'open':
